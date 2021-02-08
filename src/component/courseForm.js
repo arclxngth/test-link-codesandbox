@@ -7,8 +7,12 @@ const CourseForm = (props) => {
   const [age, setAge] = useState(0);
 
   function addPerson() {
-    const person = { name, gender, age };
-    props.setPerson([...props.person, person]);
+    if (name == "" || gender == "" || age == "") {
+      alert("All data pls");
+    } else {
+      const person = { name, gender, age };
+      props.setPerson([...props.person, person]);
+    }
   }
 
   return (

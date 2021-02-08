@@ -21,7 +21,14 @@ function App() {
 
   function renderPerson() {
     return person.map((value) => {
-      return <CourseCard {...value} key={Math.random()} />;
+      return (
+        <CourseCard
+          {...value}
+          setPerson={setPerson}
+          person={person}
+          key={Math.random()}
+        />
+      );
     });
   }
 
