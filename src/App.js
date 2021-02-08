@@ -29,17 +29,17 @@ function App() {
     return <CourseForm setPerson={setPerson} person={person} />;
   }
 
-  // useEffect(()=>{
-  //   if(localStorage.getItem("data") != null){
-  //     const buffer = localStorage.getItem("data");
-  //     const data_var = JSON.parse(buffer);
-  //     const data_arr = data_var.map((value) => {
-  //       const person = {...value};
-  //     });
-  //     setPerson(data_var);
-  //   }
+  useEffect(() => {
+    if (localStorage.getItem("data") != null) {
+      const buffer = localStorage.getItem("data");
+      const data_list = JSON.parse(buffer);
+      setPerson(data_list);
+    }
+  }, []);
 
-  // }, [])
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(person));
+  }, [person.length]);
 
   // const persons = [
   //   {
