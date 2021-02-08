@@ -3,11 +3,11 @@ import { useState } from "react";
 const CourseForm = (props) => {
   // const [ ID, setID ] = useState(0);
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("male");
-  const [age, setAge] = useState(0);
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
 
   function addPerson() {
-    if (name == "" || gender == "" || age == "") {
+    if (name === "" || gender === "" || age === "") {
       alert("All data pls");
     } else {
       const person = { name, gender, age };
@@ -26,16 +26,29 @@ const CourseForm = (props) => {
           </tr>
           <tr>
             <td>
-              <input onChange={(e) => setName(e.target.value)} />
+              <input onChange={(e) => setName(e.target.value)} value={name} />
             </td>
             <td>
-              <input onChange={(e) => setGender(e.target.value)} />
+              <input
+                onChange={(e) => setGender(e.target.value)}
+                value={gender}
+              />
             </td>
             <td>
-              <input onChange={(e) => setAge(e.target.value)} />
+              <input onChange={(e) => setAge(e.target.value)} value={age} />
             </td>
             <td>
-              <button onClick={addPerson}> Click </button>
+              <button
+                onClick={(e) => {
+                  addPerson(e);
+                  setName("");
+                  setGender("");
+                  setAge("");
+                }}
+              >
+                {" "}
+                Click{" "}
+              </button>
             </td>
           </tr>
         </tbody>

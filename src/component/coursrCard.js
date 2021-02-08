@@ -17,7 +17,7 @@ const CourseCard = (props) => {
             <td>{props.gender}</td>
             <td>{props.age}</td>
             <td>
-              <button onClick={deletePerson}>X</button>
+              <button onClick={() => deletePerson()}>X</button>
             </td>
           </tr>
         </tbody>

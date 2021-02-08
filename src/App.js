@@ -37,15 +37,15 @@ function App() {
   }
 
   useEffect(() => {
-    if (localStorage.getItem("data") != null) {
-      const buffer = localStorage.getItem("data");
+    if (localStorage.getItem("person") != null) {
+      const buffer = localStorage.getItem("person");
       const data_list = JSON.parse(buffer);
       setPerson(data_list);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(person));
+    localStorage.setItem("person", JSON.stringify(person));
   }, [person.length]);
 
   // const persons = [
