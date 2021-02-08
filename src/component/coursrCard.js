@@ -1,7 +1,7 @@
-const CourseCard = ({ props }) => {
+const CourseCard = ({ name, gender, age }) => {
   return (
     <>
-      <table class="table is-bordered mb-3">
+      <table className="table is-bordered mb-3">
         <tbody>
           <tr>
             <th>Name</th>
@@ -9,9 +9,9 @@ const CourseCard = ({ props }) => {
             <th>Age</th>
           </tr>
           <tr>
-            <td>{props.name}</td>
-            <td>{props.gender}</td>
-            <td>{props.age}</td>
+            <td>{name}</td>
+            <td>{gender}</td>
+            <td>{age}</td>
           </tr>
         </tbody>
       </table>

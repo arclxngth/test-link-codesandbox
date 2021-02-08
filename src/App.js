@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import CourseCard from "./coursrCard";
+import CourseCard from "./component/coursrCard";
+import CourseForm from "./component/courseForm";
 
 function App() {
   const [ID, setID] = useState(620610819);
+  const [person, setPerson] = useState([]);
 
   function reduce() {
     setID(ID - 1);
@@ -18,44 +20,56 @@ function App() {
   }
 
   function renderPerson() {
-    return persons.map((value) => {
-      return <CourseCard props={value} key={Math.random()} />;
+    return person.map((value) => {
+      return <CourseCard {...value} key={Math.random()} />;
     });
   }
 
-  const me = {
-    name: "TOH HOHG LENG",
-    gender: "male",
-    age: "20"
-  };
+  function renderForm() {
+    return <CourseForm setPerson={setPerson} person={person} />;
+  }
 
-  const persons = [
-    {
-      name: "Bob",
-      gender: "male",
-      age: "50"
-    },
-    {
-      name: "Alice",
-      gender: "male",
-      age: "20"
-    }
-  ];
+  // useEffect(()=>{
+  //   if(localStorage.getItem("data") != null){
+  //     const buffer = localStorage.getItem("data");
+  //     const data_var = JSON.parse(buffer);
+  //     const data_arr = data_var.map((value) => {
+  //       const person = {...value};
+  //     });
+  //     setPerson(data_var);
+  //   }
+
+  // }, [])
+
+  // const persons = [
+  //   {
+  //     name: "Bob",
+  //     gender: "male",
+  //     age: "50"
+  //   },
+  //   {
+  //     name: "Alice",
+  //     gender: "male",
+  //     age: "20"
+  //   }
+  // ];
 
   return (
-    <div class="ml-2">
+    <div className="ml-2">
       {/* Code me please! */}
-      <div class="mb-4">
-        <h3 class="title is-3">ID Counter</h3>
+      <div className="mb-4">
+        <h3 className="title is-3">DUMMY</h3>
         <p>{ID}</p>
         <button onClick={reduce}>-</button>
         <button onClick={reset}>reset</button>
         <button onClick={increase}>+</button>
       </div>
 
+      {renderForm()}
+
       {/* Convert me to a component! */}
-      <h3 class="title is-3">Person List</h3>
-      <CourseCard props={me} />
+      {/* <h3 class="title is-3">Person List</h3>
+      <CourseCard props={me} /> */}
       {renderPerson()}
     </div>
   );
