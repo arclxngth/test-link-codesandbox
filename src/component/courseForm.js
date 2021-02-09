@@ -29,10 +29,20 @@ const CourseForm = (props) => {
               <input onChange={(e) => setName(e.target.value)} value={name} />
             </td>
             <td>
-              <input
+              {/* <input
                 onChange={(e) => setGender(e.target.value)}
                 value={gender}
-              />
+              /> */}
+              <select
+                onChange={(e) => setGender(e.target.value)}
+                value={gender}
+              >
+                <option value="" selected>
+                  gender
+                </option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
             </td>
             <td>
               <input onChange={(e) => setAge(e.target.value)} value={age} />
